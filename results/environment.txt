@@ -1,0 +1,46 @@
+Protocol: 2; sequential fresh JVM forks
+Forks: 3
+Seeds: 42, 2025, 8675309
+Per graph/algorithm warmup: at least 10 calls AND 250 ms of cumulative algorithm time
+Measured: 9 calls per fork/seed/algorithm/configuration
+Summary: 81 pooled samples per cell; linear-interpolated quartiles
+Order: Collections.shuffle(cases, new Random(91000 + fork)); rotating algorithms
+
+Fork: 1
+PID: 14680
+Recorded: 2026-10-18T12:55:53.473358600+05:00
+Java: 17.0.20.1+1-LTS
+Vendor: Microsoft
+VM: OpenJDK 64-Bit Server VM
+OS: Windows 11 10.0
+Architecture: amd64
+Processor: Intel64 Family 6 Model 154 Stepping 3, GenuineIntel
+Available processors: 16
+Max heap bytes: 1073741824
+JVM arguments: [-Xms256m, -Xmx1g]
+
+Fork: 2
+PID: 22084
+Recorded: 2026-10-18T12:56:36.859763400+05:00
+Java: 17.0.20.1+1-LTS
+Vendor: Microsoft
+VM: OpenJDK 64-Bit Server VM
+OS: Windows 11 10.0
+Architecture: amd64
+Processor: Intel64 Family 6 Model 154 Stepping 3, GenuineIntel
+Available processors: 16
+Max heap bytes: 1073741824
+JVM arguments: [-Xms256m, -Xmx1g]
+
+Fork: 3
+PID: 10680
+Recorded: 2026-10-18T12:57:21.437253100+05:00
+Java: 17.0.20.1+1-LTS
+Vendor: Microsoft
+VM: OpenJDK 64-Bit Server VM
+OS: Windows 11 10.0
+Architecture: amd64
+Processor: Intel64 Family 6 Model 154 Stepping 3, GenuineIntel
+Available processors: 16
+Max heap bytes: 1073741824
+JVM arguments: [-Xms256m, -Xmx1g]

@@ -1,0 +1,43 @@
+Original saved dataset: 1080 unique positive samples; 40 summaries independently
+recomputed with no arithmetic mismatch. Its limitations were one JVM, fixed
+case order and short fixed-count warmup. No evidence of manually fabricated
+timings was found; the earlier run is also present in the project Git history.
+
+Algorithm review: no correctness defect found in DSU, Kruskal, lazy Prim,
+Kahn, iterative Kosaraju or nonnegative-weight Dijkstra within their contracts.
+No production graph algorithm was changed during this audit.
+
+Expanded correctness suite: PASS, 203689 assertions, including all 4096
+loop-free directed graphs on four vertices, all 729 ternary undirected graphs
+on four vertices, independent exhaustive/Floyd-Warshall/reachability oracles,
+and the 50000-vertex chain. Added reference validators are themselves tested.
+
+Replacement measurements: 3 fresh sequential JVMs x 3 seeds x 8 graph
+configurations x 5 algorithms x 9 samples = 3240 real measured calls.
+Each graph/algorithm warmed for >=10 calls AND >=250 ms algorithm time.
+Case order is shuffled per fork; no measured samples are discarded.
+All timed results match untimed validated answers and inputs remain unchanged.
+
+Independent Python recomputation of all 40 current summaries: PASS.
+Java VerifyResults: regenerates 72 distinct input graphs, validates saved
+answers, 3240 raw rows, all summary statistics and 360 warmup records.
+ResultAuditTests: rejects six deliberate corruptions in disposable copies.
+Artifact integrity is checked with SHA-256; text line endings are normalized.
+
+Limits: checksums and local logs are not external attestation of clock values.
+Three graph seeds remain a small population; pooled repetitions are dependent.
+No claim that an algorithm is universally fastest or that Big-O was proven
+by these timings is justified. Remote GitHub Actions has not been run here.
+
+FOLLOW-UP REQUIREMENTS REVIEW
+The fuller assignment explicitly requires Dijkstra operation counts and plots
+against BOTH V and E. Those two deliverables were absent and are now added.
+Dijkstra uses one shared loop with optional counters, tested by hand traces and
+40 random graphs; timed calls have counting disabled. The complete test suite
+passes 204095 assertions. Every benchmark graph has an untimed operation record.
+All 3240 timings were rerun in three fresh JVMs after the source changes.
+All 40 summary rows independently recalculated in Python: PASS.
+Eight Java-generated PNGs show time versus V and versus E; README includes
+timing and operation tables, definitions, updated discussion and limitations.
+Seven negative audit tests now include operation-count corruption.
+GitHub delivery remains incomplete: no remote repository is configured.
